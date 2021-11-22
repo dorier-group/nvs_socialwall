@@ -84,7 +84,7 @@
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
-												<label>Write a reply <span class="text-danger font-weight-bold">*</span></label>
+												<label>Reply<span class="text-danger font-weight-bold">*</span></label>
 												<textarea class="form-control" rows="5" placeholder="Write a reply" required name="reply_message" id="reply_message"></textarea>
 											</div>
 										</div>
