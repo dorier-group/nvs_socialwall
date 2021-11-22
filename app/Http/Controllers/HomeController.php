@@ -6,6 +6,8 @@ use App\CategoryModel;
 use App\CategoryDetails;
 use App\ParticipantsModel;
 use App\ParentModel;
+use App\ReplyModel;
+use View;
 
 class HomeController extends Controller
 {
@@ -15,25 +17,37 @@ class HomeController extends Controller
 
 		$Participants=ParticipantsModel::all();
 
-        $array=array();
-		foreach ($Participants as $key => $value) {
-			$array[$value->groups][]=$value;
-		}
+  //       $array=array();
+		// foreach ($Participants as $key => $value) {
+		// 	$array[$value->groups][]=$value;
+		// }
  		
-		$data['array']=$array;
+		//$data['array']=$array;
 		$data['category']=CategoryModel::all();
-
+	    
 	
 		return view('index')->with($data);
 	}
 
 	public function show_frm(Request $request){
 		$data['id']=$request->input('id');
-		$data['exist']=CategoryDetails::where(array('p_id'=>$request->input('id')))->first();
-		return view('add_message')->with($data);
+		$data['exist']=$iex=CategoryDetails::where(array('p_id'=>$request->input('id')))->first();
+		$view = View::make('add_message',$data);
+		//return view('add_message')->with($data);
+		if(!empty($iex)){
+			$exi='1';
+		}else{
+			$exi='0';
+		}
+		$view = View::make('add_message', $data);
+          
+        $html = $view->render(); 
+         return response()->json(array('htmls'=>$html,'av'=>$exi));
+	
 	}
 
 	public function addComment(Request $request){
+		
 		$request->validate([
             'message' => 'required',
             
@@ -44,26 +58,25 @@ class HomeController extends Controller
           $id=$request->input('id');
           $message=$request->input('message');
           $f_name=$request->input('f_name');
-          $l_name=$request->input('l_name');
+          // $l_name=$request->input('l_name');
 
           $type=$request->input('type');
           $imageName='';
-         if ($request->file('file')) {
-            $imagePath = $request->file('file');
-            $imageName = $imagePath->getClientOriginalName();
-
-            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
-            $data['file']=$imageName;
+       if(!empty($_FILES['file'])){
+        if(!empty($request->file)){
+        $imageName = time().'.'.$request->file->extension();  
+     
+        $request->file->move('public/uploads/', $imageName);
+        $data['file']=$imageName;
         }
+        }
+        
         $data['p_id']=$id;
         $data['message']=$message;
         $data['type']=$type;
         $data['created_at']=date('Y-m-d');
         $data['updated_at']=date('Y-m-d');
-        $data['f_name']=$f_name;
-        $data['l_name']=$l_name;
-
-
+        $data['name']=$f_name;
 
         $result=CategoryDetails::insert($data);
         if($result){
@@ -140,6 +153,27 @@ class HomeController extends Controller
 
 	
 		return view('index_load')->with($data);
+	}
+
+
+	public function submit_reply(Request $request){
+		$request->validate([
+            'message' => 'required',
+            
+        ]);
+        $dataa = $request->except([
+            '_token',
+          ]);
+        $id=$request->input('id');
+        $replier_name=$request->input('reply_name');
+        $replier_message=$request->input('message');
+        $result=ReplyModel::insert(array('frm_id'=>$id,'replier_name'=>$replier_name,'message'=>$replier_message,'created_at'=>date('Y-m-d'),'updated_at'=>date('Y-m-d')));
+        if($result){
+        	echo json_encode(array('response'=>true,'msg'=>'success'));
+        }else{
+        	echo json_encode(array('response'=>false,'msg'=>'faild'));
+        }
+
 	}
 }
 

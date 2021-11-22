@@ -22,3 +22,4 @@ Route::post('add_comment','HomeController@addComment');
 Route::get('participant','HomeController@participants');
 Route::post('add_particpant','HomeController@add_particpant');
 Route::post('show_graph','HomeController@showGraph');
+Route::post('submit_reply','HomeController@submit_reply');
