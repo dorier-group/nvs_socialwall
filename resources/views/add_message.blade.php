@@ -37,12 +37,12 @@
 						<div class="message_container">
 							
 							<div class="text_box message_box">
-								<p class="text message_text msg">{{$exist->message}}</p>
+								<p class="text message_text msg"><span style="font-weight:bold;">{{$exist->replier_name}}</span>{{$exist->message}}</p>
 							</div>
 								@if(!empty($exist->file))
 							<div class="media_box border" >
 								<div class="img_box">
-									@if($exist->typ==1)
+									@if($exist->type==1)
 									<img src="{{url('public/uploads/'.$exist->file)}}" height="20px" height="20px">
 
 									@elseif($exist->type==3)
