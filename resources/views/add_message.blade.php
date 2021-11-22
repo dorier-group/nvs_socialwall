@@ -96,7 +96,7 @@
 								</div>
 
 								<div class="text-right">
-									<a class="btn customBtn shadow-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Write A Reply</a>
+									<a class="btn customBtn shadow-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Reply</a>
 								</div>
 							</div>
 						</div>
