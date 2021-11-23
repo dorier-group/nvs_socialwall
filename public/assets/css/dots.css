@@ -14525,11 +14525,12 @@ div.circle_text_box div.text a.link_text {
 	-ms-transform: translate3d(0, -12px, 0) rotate(-90deg);
 	-o-transform: translate3d(0, -12px, 0) rotate(-90deg);
 	transform-origin: 0 7.5px;
+	cursor: context-menu;
 }
 
-div.circle_text_box div.text a.link_text:hover {
+/* div.circle_text_box div.text a.link_text:hover {
     color: #006bb1;
-}
+} */
 
 div.circle_text_box div.text a.link_text span.text {
 	display: block;
