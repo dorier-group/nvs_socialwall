@@ -37,7 +37,7 @@
 						<div class="message_container">
 							
 							<div class="text_box message_box">
-								<p class="text message_text msg"><span style="font-weight:bold;">{{$exist->replier_name}}</span>{{$exist->message}}</p>
+								<p class="text message_text msg">{{$exist->message}}</p>
 							</div>
 								@if(!empty($exist->file))
 							<div class="media_box border" >
@@ -65,6 +65,7 @@
 							
 							?>
 							<div class="text_box reply_box" >
+								<h6 class="replier_name mb-1"><?php echo $rows->replier_name;?></h6>
 								<p class="text reply_text"><?php echo $rows->message;?></p>
 							</div>
 						    <?php }  }?>

@@ -46,7 +46,7 @@
 
                     </div>
 
-                    <div class="modal-footer">
+                    <div class="modal-footer" id="hidefooter">
                         <button type="button" class="btn customBtn shadow-sm" id="submitcomment">Share <i
                                 class="fas fa-angle-right ml-1"></i></button>
                     </div>
@@ -114,7 +114,7 @@
 
     <script>
     $('body').on('click', '.fill', function() {
-        $('#submitcomment').show();
+        $('#hidefooter').show();
          $('#imgbox').before('<div class="text_box reply_box" ><p class="text reply_text">hldkf</p></div>');
         var id = $(this).attr('data-id');
         var url = '{{url("show_frm")}}';
@@ -132,7 +132,7 @@
             },
             success: function(data) {
                 if(data.av==1){
-                $('#submitcomment').hide();
+                $('#hidefooter').hide();
                 }
                 $('#usermodel').html(data.htmls);
                 $('#myModal').modal('show');
@@ -352,7 +352,7 @@
             success: function(data) {
                 
                
-                $('#appendmsg').append('<div class="text_box reply_box"><p class="text reply_text">'+message+'</p></div>');
+                $('#appendmsg').append('<div class="text_box reply_box"><h6 class="replier_name mb-1">'+reply_name+'</h6><p class="text reply_text">'+message+'</p></div>');
                  $('#submitreplyfrm')[0].reset();
                  $('#wrar').click();
                  //   $('#imgbox').after('<div class="text_box reply_box"><p class="text reply_text">'+message+'</p></div>');
