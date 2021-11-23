@@ -333,6 +333,7 @@
                         $(this).parent().parent().removeClass("index_1");
                     }
                 );
+                $('[data-toggle="tooltip"]').tooltip();
 
             }
         });
@@ -439,6 +440,7 @@
                         $(this).parent().parent().removeClass("index_1");
                     }
                 );
+                $('[data-toggle="tooltip"]').tooltip();
 
             }
         });
