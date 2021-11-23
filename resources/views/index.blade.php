@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{csrf_token() }}">
 
-    <title>NVS _ DEMO</title>
+    <title>Ivac Guestbook</title>
 
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/style.css')}}">
@@ -18,17 +18,20 @@
 </head>
 
 <body>
-    <main class="container-fluid px-0 py-5 ">
+    <main class="container-fluid px-0 py-3">
         <div class="container">
-            <div class="col-xl-6 col-lg-7 col-md-10 col-12 mx-auto mb-5">
-                <p class="welcome_text mb-0">Welcome to the guestbook of the Virtual Exhibition, supporting the
-                    Co-Creating Impact Summit 2021! Use this guest book to leave your reactions, impressions, thoughts
-                    and ideas.</p>
+            <div class="">
+                <!-- <div class="col-xl-6 col-lg-7 col-md-10 col-12 mx-auto mb-5"> -->
+                <p class="welcome_text mb-0">Welcome to the Guestbook of the Virtual Exhibition, supporting the
+                    Co-Creating Impact Summit 2021!
+                    <br> Use this guest book to leave your reactions, impressions, thoughts
+                    and ideas.
+                </p>
             </div>
         </div>
 
         <div class="frame animate__animated animate__zoomIn" id="frame">
-         
+
 
 
         </div>
@@ -71,14 +74,15 @@
                 }
             );
 
-        $("div.ring-14 div.dot a.fill, div.ring-15 div.dot a.fill, div.ring-16 div.dot a.fill,div.ring-17 div.dot a.fill,div.ring-18 div.dot a.fill").hover(
-            function() {
-                $("a.fill").addClass("animation_reverse");
-            },
-            function() {
-                $("a.fill").removeClass("animation_reverse");
-            }
-        );
+        $("div.ring-14 div.dot a.fill, div.ring-15 div.dot a.fill, div.ring-16 div.dot a.fill,div.ring-17 div.dot a.fill,div.ring-18 div.dot a.fill")
+            .hover(
+                function() {
+                    $("a.fill").addClass("animation_reverse");
+                },
+                function() {
+                    $("a.fill").removeClass("animation_reverse");
+                }
+            );
 
         $("div.bg_box").hover(
             function() {
@@ -114,8 +118,10 @@
 
     <script>
     $('body').on('click', '.fill', function() {
-        $('#hidefooter').show();
-         $('#imgbox').before('<div class="text_box reply_box" ><p class="text reply_text">hldkf</p></div>');
+         $('#hidefooter').show();
+        //  //$('#imgbox').before('<div class="text_box reply_box" ><p class="text reply_text">hldkf</p></div>');
+        // $('#submitcomment').show();
+        // $('#imgbox').before('<div class="text_box reply_box" ><p class="text reply_text">hldkf</p></div>');
         var id = $(this).attr('data-id');
         var url = '{{url("show_frm")}}';
         $.ajaxSetup({
@@ -133,7 +139,9 @@
             success: function(data) {
                 if(data.av==1){
                 $('#hidefooter').hide();
-                }
+                // if (data.av == 1) {
+                //     $('#submitcomment').hide();
+                 }
                 $('#usermodel').html(data.htmls);
                 $('#myModal').modal('show');
 
@@ -196,7 +204,7 @@
             $('.message_error').text(' ');
 
         }
-         var image = document.getElementById("file").value;
+        var image = document.getElementById("file").value;
         var ext = image.split('.').pop().toLowerCase();
         // if(image=="")
         // {
@@ -204,21 +212,19 @@
         //     document.getElementById("file").focus();
         //     return false;
         // }
-        var type=$('#type').val();
-        if(type==1){
-        if(image!="") ['pdf','doc','docx','xls']
-        {    
-        if($.inArray(ext, ['png','jpg','jpeg']) == -1)
-        {
-            $('.file_error').text('Wrong File Format!..Please Select Right Format');
-            document.getElementById("file").value='';
-            document.getElementById("file").focus();
-            return false;
-        }
-        }
-        }else if(type==3){
-             var i=$("#file")[0].files[0].size/ 1024 / 1024;
-            if(i>10){
+        var type = $('#type').val();
+        if (type == 1) {
+            if (image != "['pdf', 'doc', 'docx', 'xls']") {
+                if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+                    $('.file_error').text('Wrong File Format!..Please Select Right Format');
+                    document.getElementById("file").value = '';
+                    document.getElementById("file").focus();
+                    return false;
+                }
+            }
+        } else if (type == 3) {
+            var i = $("#file")[0].files[0].size / 1024 / 1024;
+            if (i > 10) {
                 $('.file_error').text('Please upload file less than 10MB');
             }
         }
@@ -285,21 +291,22 @@
         $.ajax({
             type: 'post',
             url: url,
-            dataType:'html',
+            dataType: 'html',
             success: function(data) {
 
                 $('#frame').html(data);
-                 $("div.ring-1 div.dot a.fill, div.ring-2 div.dot a.fill, div.ring-3 div.dot a.fill, div.ring-4 div.dot a.fill, div.ring-5 div.dot a.fill, div.ring-6 div.dot a.fill, div.ring-7 div.dot a.fill, div.ring-8 div.dot a.fill, div.ring-9 div.dot a.fill, div.ring-10 div.dot a.fill, div.ring-11 div.dot a.fill, div.ring-12 div.dot a.fill, div.ring-13 div.dot a.fill")
-                        .hover(
-                            function() {
-                                $("a.fill").addClass("animation_forward");
-                            },
-                            function() {
-                                $("a.fill").removeClass("animation_forward");
-                            }
-                        );
+                $("div.ring-1 div.dot a.fill, div.ring-2 div.dot a.fill, div.ring-3 div.dot a.fill, div.ring-4 div.dot a.fill, div.ring-5 div.dot a.fill, div.ring-6 div.dot a.fill, div.ring-7 div.dot a.fill, div.ring-8 div.dot a.fill, div.ring-9 div.dot a.fill, div.ring-10 div.dot a.fill, div.ring-11 div.dot a.fill, div.ring-12 div.dot a.fill, div.ring-13 div.dot a.fill")
+                    .hover(
+                        function() {
+                            $("a.fill").addClass("animation_forward");
+                        },
+                        function() {
+                            $("a.fill").removeClass("animation_forward");
+                        }
+                    );
 
-                    $("div.ring-14 div.dot a.fill, div.ring-15 div.dot a.fill, div.ring-16 div.dot a.fill,div.ring-17 div.dot a.fill,div.ring-18 div.dot a.fill").hover(
+                $("div.ring-14 div.dot a.fill, div.ring-15 div.dot a.fill, div.ring-16 div.dot a.fill,div.ring-17 div.dot a.fill,div.ring-18 div.dot a.fill")
+                    .hover(
                         function() {
                             $("a.fill").addClass("animation_reverse");
                         },
@@ -308,34 +315,34 @@
                         }
                     );
 
-                    $("div.bg_box").hover(
-                        function() {
-                            $("a.fill").addClass("bg_box_animation");
-                        },
-                        function() {
-                            $("a.fill").removeClass("bg_box_animation");
-                        }
-                    );
-                     $("a.fill").hover(
-                        function() {
-                            $(this).parent().addClass("index_1");
-                            $(this).parent().parent().addClass("index_1");
-                        },
-                        function() {
-                            $(this).parent().removeClass("index_1");
-                            $(this).parent().parent().removeClass("index_1");
-                        }
-                    );
+                $("div.bg_box").hover(
+                    function() {
+                        $("a.fill").addClass("bg_box_animation");
+                    },
+                    function() {
+                        $("a.fill").removeClass("bg_box_animation");
+                    }
+                );
+                $("a.fill").hover(
+                    function() {
+                        $(this).parent().addClass("index_1");
+                        $(this).parent().parent().addClass("index_1");
+                    },
+                    function() {
+                        $(this).parent().removeClass("index_1");
+                        $(this).parent().parent().removeClass("index_1");
+                    }
+                );
 
             }
         });
     }, 30000);
 
-    $('body').on('click','#submitreply',function(){
-        var message=$('#reply_message').val();
-        var reply_name=$('#reply_name').val();
+    $('body').on('click', '#submitreply', function() {
+        var message = $('#reply_message').val();
+        var reply_name = $('#reply_name').val();
 
-        var id=$('#frm_id').val();
+        var id = $('#frm_id').val();
         var url = '{{url("submit_reply")}}';
         $.ajaxSetup({
             headers: {
@@ -347,16 +354,29 @@
             type: 'post',
             url: url,
             data: {
-                'id': id,'message':message,'reply_name':reply_name
+                'id': id,
+                'message': message,
+                'reply_name': reply_name
             },
             success: function(data) {
                 
                
-                $('#appendmsg').append('<div class="text_box reply_box"><h6 class="replier_name mb-1">'+reply_name+'</h6><p class="text reply_text">'+message+'</p></div>');
-                 $('#submitreplyfrm')[0].reset();
-                 $('#wrar').click();
+             $('#appendmsg').append('<div class="text_box reply_box"><h6 class="replier_name mb-1">'+reply_name+'</h6><p class="text reply_text">'+message+'</p></div>');
+            //  $('#submitreplyfrm')[0].reset();
+            //      $('#wrar').click();
                  //   $('#imgbox').after('<div class="text_box reply_box"><p class="text reply_text">'+message+'</p></div>');
                 
+
+
+                // $('#appendmsg').append(
+
+                //     '<div class="replyname"><div class="text_box reply_box"><p class="text reply_text">' +
+                //     message +
+                //     '</p></div>');
+                $('#submitreplyfrm')[0].reset();
+                $('#wrar').click();
+                //   $('#imgbox').after('<div class="text_box reply_box"><p class="text reply_text">'+message+'</p></div>');
+
 
             }
         });
@@ -364,10 +384,10 @@
     })
     $(document).ready(function() {
 
-   
 
 
-               var url = '{{url("show_graph")}}';
+
+        var url = '{{url("show_graph")}}';
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -377,21 +397,22 @@
         $.ajax({
             type: 'post',
             url: url,
-            dataType:'html',
+            dataType: 'html',
             success: function(data) {
 
                 $('#frame').html(data);
-                 $("div.ring-1 div.dot a.fill, div.ring-2 div.dot a.fill, div.ring-3 div.dot a.fill, div.ring-4 div.dot a.fill, div.ring-5 div.dot a.fill, div.ring-6 div.dot a.fill, div.ring-7 div.dot a.fill, div.ring-8 div.dot a.fill, div.ring-9 div.dot a.fill, div.ring-10 div.dot a.fill, div.ring-11 div.dot a.fill, div.ring-12 div.dot a.fill, div.ring-13 div.dot a.fill")
-                        .hover(
-                            function() {
-                                $("a.fill").addClass("animation_forward");
-                            },
-                            function() {
-                                $("a.fill").removeClass("animation_forward");
-                            }
-                        );
+                $("div.ring-1 div.dot a.fill, div.ring-2 div.dot a.fill, div.ring-3 div.dot a.fill, div.ring-4 div.dot a.fill, div.ring-5 div.dot a.fill, div.ring-6 div.dot a.fill, div.ring-7 div.dot a.fill, div.ring-8 div.dot a.fill, div.ring-9 div.dot a.fill, div.ring-10 div.dot a.fill, div.ring-11 div.dot a.fill, div.ring-12 div.dot a.fill, div.ring-13 div.dot a.fill")
+                    .hover(
+                        function() {
+                            $("a.fill").addClass("animation_forward");
+                        },
+                        function() {
+                            $("a.fill").removeClass("animation_forward");
+                        }
+                    );
 
-                    $("div.ring-14 div.dot a.fill, div.ring-15 div.dot a.fill, div.ring-16 div.dot a.fill,div.ring-17 div.dot a.fill,div.ring-18 div.dot a.fill").hover(
+                $("div.ring-14 div.dot a.fill, div.ring-15 div.dot a.fill, div.ring-16 div.dot a.fill,div.ring-17 div.dot a.fill,div.ring-18 div.dot a.fill")
+                    .hover(
                         function() {
                             $("a.fill").addClass("animation_reverse");
                         },
@@ -400,32 +421,32 @@
                         }
                     );
 
-                    $("div.bg_box").hover(
-                        function() {
-                            $("a.fill").addClass("bg_box_animation");
-                        },
-                        function() {
-                            $("a.fill").removeClass("bg_box_animation");
-                        }
-                    );
-                     $("a.fill").hover(
-                        function() {
-                            $(this).parent().addClass("index_1");
-                            $(this).parent().parent().addClass("index_1");
-                        },
-                        function() {
-                            $(this).parent().removeClass("index_1");
-                            $(this).parent().parent().removeClass("index_1");
-                        }
-                    );
+                $("div.bg_box").hover(
+                    function() {
+                        $("a.fill").addClass("bg_box_animation");
+                    },
+                    function() {
+                        $("a.fill").removeClass("bg_box_animation");
+                    }
+                );
+                $("a.fill").hover(
+                    function() {
+                        $(this).parent().addClass("index_1");
+                        $(this).parent().parent().addClass("index_1");
+                    },
+                    function() {
+                        $(this).parent().removeClass("index_1");
+                        $(this).parent().parent().removeClass("index_1");
+                    }
+                );
 
             }
         });
 
 
-         
 
-        });
+
+    });
     </script>
     <style type="text/css">
     span.error {

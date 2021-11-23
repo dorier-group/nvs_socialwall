@@ -1,3 +1,48 @@
+/* Sanjay
+
+/* style.css | https://cranky-pare.51-136-88-45.plesk.page/public/assets/css/style.css */
+
+div.modal div.modal-content div.modal-body div.message_container div.media_box div.img_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Element | https://cranky-pare.51-136-88-45.plesk.page/ */
+
+.img_box>img:nth-child(1) {
+    height: auto;
+    width: 100%;
+}
+
+
+/* style.css | https://cranky-pare.51-136-88-45.plesk.page/public/assets/css/style.css */
+
+div.modal div.modal-content div.modal-body div.message_container div.media_box {
+    /* background-color: #e2e6ea; */
+    background-color: #fff !important;
+}
+
+
+/* bootstrap.min.css | https://cranky-pare.51-136-88-45.plesk.page/public/assets/css/bootstrap.min.css */
+
+.border {
+    /* border: 1px solid #dee2e6 !important; */
+    border: 1px solid #fff !important;
+}
+
+
+/* style.css | https://cranky-pare.51-136-88-45.plesk.page/public/assets/css/style.css */
+
+div.modal div.modal-content div.modal-body div.message_container div.media_box {
+    /* background-color: #e2e6ea; */
+    background-color: #fff !important;
+}
+
+
+/* Sanjay  */
+
 * {
 	margin: 0;
 	padding: 0;
