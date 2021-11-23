@@ -24,7 +24,7 @@
                 <!-- <div class="col-xl-6 col-lg-7 col-md-10 col-12 mx-auto mb-5"> -->
                 <p class="welcome_text mb-0">Welcome to the Guest Book of the Virtual Exhibition, supporting the
                     Co-Creating Impact Summit 2021!
-                    <br> Use this guest book to leave your reactions, impressions, thoughts
+                    <br> Use this Guest Book to leave your reactions, impressions, thoughts
                     and ideas.
                 </p>
             </div>
