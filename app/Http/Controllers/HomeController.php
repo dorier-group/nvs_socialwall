@@ -175,6 +175,11 @@ class HomeController extends Controller
         }
 
 	}
+
+	public function upload_file(Request $request){
+		print_r($_FILES);
+
+	}
 }
 
 ?>
