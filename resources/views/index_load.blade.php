@@ -5,7 +5,7 @@
                 @foreach($category as $rows)
                 <?php  $t++; $tes=''; if($t>=21 && $t<=40){ $tes='rotate_text';} ?>
                 <div class="text text-{{$t}}">
-                    <a href="#" class="link_text" data-toggle="tooltip" title="{{$rows['category_name']}}">
+                    <a href="#" class="link_text" >
                         <span class="text {{$tes}}">{{$rows['category_name']}}</span>
                     </a>
                 </div>
