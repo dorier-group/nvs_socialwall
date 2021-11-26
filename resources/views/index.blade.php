@@ -41,7 +41,7 @@
             <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" >leave your message</h4>
+                        <h4 class="modal-title" >Leave your message</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
