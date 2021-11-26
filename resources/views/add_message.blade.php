@@ -29,7 +29,9 @@
 							<button type="button" class="btn customBtn btn-lg shadow-sm mx-1 files"  data-id="3"><i class="fas fa-film"></i></button>
 							<span class="files_error d-block text-center mt-3"></span>
 						</div>
-					 <div id="progress_bar" style="display:none;"></div>
+				
+					 	<p style="text-align: center;color: red;">Please not the size of the attached media should not exceed 5MB</p>
+					
 						<span class="file_error error d-block text-center mt-3"></span>
 					
 						@endif
