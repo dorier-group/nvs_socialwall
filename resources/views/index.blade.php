@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/dots.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/all.css')}}" />
+       <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css" />
     <link rel="stylesheet" href="{{url('public/assets/css/animate.min.css')}}" />
 
 </head>
