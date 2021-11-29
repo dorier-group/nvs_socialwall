@@ -126,6 +126,17 @@ textarea:focus,
 	color: #ffffff;
 }
 
+.btn.customBtnFill {
+	background-color: #006bb1;
+	border: 1px solid #006bb1;
+	color: #ffffff;
+}
+
+.btn.customBtnFill:hover {
+	background-color: #ffffff;
+	color: #006bb1;
+}
+
 div.modal-backdrop {
 	display: none;
 }

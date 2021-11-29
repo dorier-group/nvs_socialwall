@@ -30,7 +30,7 @@
 							<span class="files_error d-block text-center mt-3"></span>
 						</div>
 
-			        	<p class="text-center mb-0">Please not the size of the attached media should not exceed 5MB</p>
+			        	<p class="text-center mb-0" style="color: red;">Please not the size of the attached media should not exceed 10MB</p>
 					 	
 					
 						<span class="file_error error d-block text-center mt-3"></span>
@@ -102,7 +102,7 @@
 								</div>
 
 								<div class="text-right">
-									<a class="btn customBtn shadow-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Reply</a>
+									<a class="btn customBtnFill shadow-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="closereplybtn">Reply</a>
 								</div>
 							</div>
 						</div>

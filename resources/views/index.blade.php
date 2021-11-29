@@ -11,9 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/dots.css')}}">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/all.css')}}" />
+    <link rel="stylesheet" href="{{url('public/assets/css/animate.min.css')}}" />
 
 </head>
 
@@ -39,10 +38,10 @@
 
         <div class="modal fade dataModal" id="myModal">
             <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content rounded-0" style="box-shadow: 0 0 50px rgba(0, 0, 0, .3);">
                     <div class="modal-header">
                         <h4 class="modal-title" >Leave your message</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close" data-dismiss="modal" style="color: #000000; opacity: 1;">&times;</button>
                     </div>
 
                     <div class="modal-body" id="usermodel">
@@ -218,7 +217,7 @@
             var i = $("#file")[0].files[0].size;
             var numb =$("#file")[0].files[0].size / 1024 / 1024;
             numb = numb.toFixed(2);
-            if (numb > 5) {
+            if (numb > 10) {
                 $('.file_error').text('Maximum is 5MB. You file size is: ' + numb + ' MB');
                 return false;
             } 
@@ -348,7 +347,7 @@
 
             }
         });
-    }, 30000);
+    }, 50000);
 
     $('body').on('click', '#submitreply', function() {
         var message = $('#reply_message').val();
@@ -372,7 +371,7 @@
             },
             success: function(data) {
                 
-               
+            
              $('#appendmsg').append('<div class="text_box reply_box"><h6 class="replier_name mb-1">'+reply_name+'</h6><p class="text reply_text">'+message+'</p></div>');
             //  $('#submitreplyfrm')[0].reset();
             //      $('#wrar').click();
@@ -395,9 +394,6 @@
 
     })
     $(document).ready(function() {
-
-
-
 
         var url = '{{url("show_graph")}}';
         $.ajaxSetup({
@@ -460,6 +456,10 @@
 
 
     });
+
+    $('body').on('click','#closereplybtn',function(){
+        $(this).hide();
+    })
     </script>
     <style type="text/css">
     span.error {
