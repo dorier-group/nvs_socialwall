@@ -14,7 +14,12 @@
        <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css" />
     <link rel="stylesheet" href="{{url('public/assets/css/animate.min.css')}}" />
-
+   <style type="text/css">
+       
+.info_box{
+     background-image: url("public/img.jpg");
+}
+   </style>
 </head>
 
 <body>
@@ -29,10 +34,12 @@
                
             </div>
         </div>
-
+        <div id="myDiv" >
+                <img src="{{url('public/load.gif')}}">
+        </div>
         <div class="frame animate__animated animate__zoomIn" id="frame">
 
-
+            
 
         </div>
 
@@ -348,7 +355,7 @@
 
             }
         });
-    }, 50000);
+    }, 180000);
 
     $('body').on('click', '#submitreply', function() {
         var message = $('#reply_message').val();
@@ -397,6 +404,7 @@
     $(document).ready(function() {
 
         var url = '{{url("show_graph")}}';
+         var imageUrl = '{{url("public/img.jpg")}}';
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -407,9 +415,14 @@
             type: 'post',
             url: url,
             dataType: 'html',
+             beforeSend: function() {
+                $("#myDiv").show();
+            },
             success: function(data) {
-
+                 $("#myDiv").hide();
                 $('#frame').html(data);
+                $('.info_box').css('background-image', 'url(' + imageUrl + ')');
+            
                 $("div.ring-1 div.dot a.fill, div.ring-2 div.dot a.fill, div.ring-3 div.dot a.fill, div.ring-4 div.dot a.fill, div.ring-5 div.dot a.fill, div.ring-6 div.dot a.fill, div.ring-7 div.dot a.fill, div.ring-8 div.dot a.fill, div.ring-9 div.dot a.fill, div.ring-10 div.dot a.fill, div.ring-11 div.dot a.fill, div.ring-12 div.dot a.fill, div.ring-13 div.dot a.fill")
                     .hover(
                         function() {

@@ -232,11 +232,9 @@
 				?>
                 <div class="dot dot-{{$j}}">
                     <a href="javascript:void(0);" class="fill   {{$submit}} " data-id="{{$row->id}}" id="{{$row->id}}">
-                        <!-- <div class="info_box"
-                            style="background-image: url(https://s3-eu-west-1.amazonaws.com/devenv-okela-stage/artists/images/000/000/156/medium_dark/avatar.jpg?1585044291);"> -->
+                      
 
-                        <div class="info_box"
-                            style="background-image: url(https://i.ibb.co/KW2YFRh/Microsoft-Teams-image-44.jpg);">
+                        <div class="info_box" style="background-image: url(<?php echo url("public/img.jpg") ?>);">
 
 
                             <h6 class="name_text">

@@ -261,3 +261,18 @@ div.modal div.modal-content div.modal-body div.message_container div.reply_conta
 	margin-top: 20px;
 	padding-top: 20px;
 }
+#myDiv{
+     width: 800px;
+    min-width: 800px;
+    height: 800px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
