@@ -30,7 +30,7 @@
 							<span class="files_error d-block text-center mt-3"></span>
 						</div>
 
-			        	<p class="text-center mb-0" style="color: red;">Please not the size of the attached media should not exceed 10MB</p>
+			        	<p class="text-center mb-0" style="color: red;">Please note the size of the attached media should not exceed 10MB</p>
 					 	
 					
 						<span class="file_error error d-block text-center mt-3"></span>
